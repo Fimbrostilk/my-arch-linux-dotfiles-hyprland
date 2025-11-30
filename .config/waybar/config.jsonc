@@ -1,0 +1,111 @@
+// -*- mode: jsonc -*-
+{
+	"layer": "top",
+	"position": "top",
+	"height": 25,
+	"spacing": 0,
+	"output": "eDP-1",
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/submap"
+	],
+	"modules-center": ["mpris"],
+	"modules-right": [
+		"custom/audio",
+		"network",
+		"battery",
+		"clock",
+		"power-profiles-daemon"
+	],
+	"hyprland/language":{
+		"format": "{}",
+		"format-en": "EN",
+		"format-es": "ES"
+	},
+	"hyprland/workspaces": {
+		"active-only": false,
+		"all-outputs": true,
+		"show-special": false,
+		"warp-on-scroll": true,
+		"format": "{icon}",
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"format-icons": {
+			"1": "󰣇",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"6": "",
+			"7": "",
+			"8": "",
+			"9": "",
+			"10": "",
+			"music": "󰽴",
+			"urgent": "",
+			"focused": "󰼀"
+		},
+        	"persistent-workspaces": {
+            	"*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        	}
+	},
+	"custom/audio": {
+		"exec": "$HOME/.scripts/sound/get-volume.sh",
+		"on-click": "kitty alsamixer",
+		"on-scrol-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+		"on-scrol-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"signal": 1
+	},
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"network": {
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"format-wifi": "{signalStrength}% ",
+		"format-ethernet": "󰈁",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+		"tooltip-format-ethernet": "{ifname} 󰈁 ",
+		"tooltip-format-disconnected": "Disconnected",
+		"format-linked": "{ifname} (No IP) 󰩟",
+		"format-disconnected": "⚠",
+		"format-alt": "{ifname}: {ipddr}/{cidr}"
+	},
+	"mpris": {
+		"dynamic-order": ["title", "album"],
+		"format": "{player_icon}  {dynamic}",
+		"max-length": 55,
+		"format-scroll": true,
+		"format-paused": "{status_icon}  {dynamic}",
+		"player-icons": {
+			"default": "󰏦",
+			"mpv": "🎵"
+		},
+		"status-icons": {
+			"paused": "󰐍"
+		}
+	},
+	"battery": {
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""],
+		"max-length": 25
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile} Driver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
+	}
+}
