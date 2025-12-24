@@ -1,76 +1,39 @@
-// -*- mode: jsonc -*-
-{
-	"layer": "top",
-	"position": "top",
-	"height": 25,
-	"spacing": 0,
-	"output": "HDMI-A-4",
-	"modules-left": [
-		"hyprland/window"
-	],
-	"modules-center": ["custom/mpris"],
-	"modules-right": [
-		"custom/audio",
-		"custom/spacer",
-		"network",
-		"custom/spacer",
-		"clock"
-		//"custom/spacer",
-		//"power-profiles-daemon"
-	],
-	"custom/spacer": {
-		"format": "|",
-		"tooltip": false
-	},
-	"custom/audio": {
-		"exec": "$HOME/.scripts/sound/get-volume.sh",
-		"enable-bar-scroll": true,
-		"on-scrol-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-		"on-scrol-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"signal": 1
-	},
-	"clock": {
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": "{:%Y-%m-%d}"
-	},
-	"network": {
-		// "interface": "wlp2*", // (Optional) To force the use of this interface
-		"format-wifi": "{signalStrength}% ",
-		"format-ethernet": "󰈁",
-		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-		"tooltip-format-ethernet": "{ifname} 󰈁 ",
-		"tooltip-format-disconnected": "Disconnected",
-		"format-linked": "{ifname} (No IP) 󰩟",
-		"format-disconnected": "⚠",
-		"format-alt": "{ifname}: {ipddr}/{cidr}"
-	},
-	"custom/mpris": {
-		"exec": "python3 -u $HOME/.scripts/music/scrolling-mpris.py",
-		"format": "{text}",
-		"return-type": "json",
-		"on-click": "playerctl play-pause"
-	},
-	"battery": {
-		"interval": 60,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{capacity}% {icon}",
-		"format-icons": ["", "", "", "", ""],
-		"max-length": 25
-	},
-	"power-profiles-daemon": {
-		"format": "{icon}",
-		"tooltip-format": "Power profile: {profile} Driver: {driver}",
-		"tooltip": true,
-		"format-icons": {
-			"default": "",
-			"performance": "",
-			"balanced": "",
-			"power-saver": ""
-		}
-	}
+* {
+	font-family: '0xProto Nerd Font';
+	font-size: 13px;
+	all: unset;
+}
+
+tooltip {
+	font-family: '0xProto Nerd Font Mono';
+	color: white;
+	background-color: rgba(0, 0, 0, 0.8);
+	border: 2px solid white;
+}
+
+#waybar {
+	background-color: rgba(0, 0, 0, 0.8);
+	border-bottom: 2px solid white;
+}
+
+#power-profiles-daemon,
+#window,
+#custom-audio,
+#custom-spacer,
+#network,
+#clock,
+#custom-mpris {
+	font-family: '0xProto Nerd Font Mono';
+	font-weight: bold;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-bottom: 2px;
+}
+
+#custom-spacer {
+	color: rgba(150, 150, 150, 1);
+}
+
+#custom-spaaaaace {
+	min-width: 200px;
 }
