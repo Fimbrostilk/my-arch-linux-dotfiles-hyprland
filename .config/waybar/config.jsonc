@@ -28,10 +28,10 @@
 	},
 	"custom/audio": {
 		"exec": "$HOME/.scripts/sound/get-volume.sh",
-		"enable-bar-scroll": true,
-		"on-scrol-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-		"on-scrol-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1dB",
+		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1dB",
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"smooth-scroll-threshold": 0.1,
 		"signal": 1
 	},
 	"clock": {
