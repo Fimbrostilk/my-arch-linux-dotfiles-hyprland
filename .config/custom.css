@@ -1,0 +1,28 @@
+* {
+	font-family: "0xProto Nerd Font Mono" !important;
+}
+#titlebar {
+	display: none !important;
+}
+.window-buttongroup {
+	display: none !important;
+}
+::-webkit-scrollbar {
+	width: 0px !important;
+	height: 0px !important;
+	display: none !important;
+}
+#browser {
+	padding-top: 0 !important;
+}
+
+.mainbar {
+	margin-top: 0 !important;
+}
+#titlebar, #header {
+	display: none !important;
+	height: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	overflow: hidden !important;
+}
