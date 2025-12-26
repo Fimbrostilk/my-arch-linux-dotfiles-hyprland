@@ -1,3 +1,5 @@
+┌─[angel@OptiPlex-3060] - [~] - [661]
+└─[$] cat .config/waybar/config.jsonc                                                                                                                                              [1:44:04]
 // -*- mode: jsonc -*-
 {
 	"layer": "top",
@@ -11,14 +13,20 @@
 	],
 	"modules-center": ["custom/mpris"],
 	"modules-right": [
+		"custom/brightnessctl",
+		"custom/spacer",
 		"custom/audio",
 		"custom/spacer",
 		"network",
 		"custom/spacer",
 		"clock"
-		//"custom/spacer",
 		//"power-profiles-daemon"
 	],
+	"custom/brightnessctl": {
+		"exec": "$HOME/.scripts/brightness/get-brightness.sh",
+		"on-click": "$HOME/.scripts/brightness/waybar-brghtnssctl.sh && pkill -RTMIN+2 waybar",
+		"signal": 2
+	},
 	"custom/spaaaaace": { // 5 'a'
 		"exec": "echo ' '"
 	},
