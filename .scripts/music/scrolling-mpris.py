@@ -10,7 +10,7 @@ GLYPHS = {
 }
 DEFAULT_GLYPH = ""  # Glyph when status is unknown or default
 TEXT_WHEN_STOPPED = "..."  # Text to display when nothing is playing
-SCROLL_TEXT_LENGTH = 70  # Length of the song title part (excludes glyph and space)
+SCROLL_TEXT_LENGTH = 50 # Length of the song title part (excludes glyph and space)
 REFRESH_INTERVAL = 0.4  # How often the script updates (in seconds)
 PLAYERCTL_PATH = "/usr/bin/playerctl" # Path to playerctl, use which playerctl to find yours.
 
@@ -32,7 +32,7 @@ def get_current_song():
         song_title = result.stdout.decode('utf-8').strip()
         if result.returncode != 0 or not song_title:
             return [TEXT_WHEN_STOPPED, 0]  # Return None if no song is playing or an error occurred
-        return [song_title + '      ', 1] if len(song_title) > 70 else [song_title, 0]
+        return [song_title + '      ', 1] if len(song_title) > SCROLL_TEXT_LENGTH else [song_title, 0]
     except Exception as e:
         return None
 
