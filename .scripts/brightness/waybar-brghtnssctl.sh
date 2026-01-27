@@ -1,14 +1,16 @@
 #!/bin/bash
 
-dump=$(ddcutil getvcp 10)
-valor=${dump:66:3}
+brightness=$(brightnessctl -c backlight g)
 
-if [ $valor -lt 50 ]
+if [ $brightness -lt 3750 ]
 then
-	ddcutil setvcp 10 50
-elif [ $valor -lt 100 ]
+	brightnessctl s 50% || true
+	ddcutil setvcp 10 50 || true
+elif [ $brightness -lt 7500 ]
 then
-	ddcutil setvcp 10 100
+	brightnessctl s 100% || true
+	ddcutil setvcp 10 100 || true
 else
-	ddcutil setvcp 10 0
+	brightnessctl s 1% || true
+	ddcutil setvcp 10 0 || true
 fi
