@@ -5,11 +5,8 @@
 	"height": 25,
 	"spacing": 0,
 	"output": "HDMI-A-4",
-	"modules-left": [
-		"hyprland/window",
-		"custom/spaaaaace"
-	],
-	"modules-center": ["custom/mpris"],
+	"modules-left": ["custom/mpris"],
+	"modules-center": ["hyprland/window"],
 	"modules-right": [
 		"custom/brightnessctl",
 		"custom/spacer",
