@@ -2,9 +2,9 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 25,
+	"height": 26,
 	"spacing": 0,
-	"output": "HDMI-A-4",
+	"output": "eDP-1",
 	"modules-left": ["custom/mpris"],
 	"modules-center": ["hyprland/window"],
 	"modules-right": [
@@ -12,10 +12,13 @@
 		"custom/spacer",
 		"custom/audio",
 		"custom/spacer",
+		"battery",
+		"custom/spacer",
 		"network",
 		"custom/spacer",
-		"clock"
-		//"power-profiles-daemon"
+		"clock",
+		"custom/spacer",
+		"power-profiles-daemon"
 	],
 	"custom/brightnessctl": {
 		"exec": "$HOME/.scripts/brightness/get-brightness.sh",
@@ -34,7 +37,7 @@
 		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1dB",
 		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1dB",
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"smooth-scroll-threshold": 0.1,
+		"smooth-scroll-threshold": 0,
 		"signal": 1
 	},
 	"clock": {
