@@ -1,12 +1,11 @@
 #!/bin/bash
 
-dump=$(ddcutil getvcp 10)
-valor=${dump:66:3}
+brightness=$(brightnessctl -c backlight g)
 
-if [ $valor -lt 50 ]
+if [ $brightness -lt 3750 ]
 then
 	echo "󰃞"
-elif [ $valor -lt 100 ]
+elif [ $brightness -lt 7500 ]
 then
 	echo "󰃟"
 else
