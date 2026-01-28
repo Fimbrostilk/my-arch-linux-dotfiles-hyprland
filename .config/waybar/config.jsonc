@@ -21,13 +21,14 @@
 		"custom/spacer",
 		"power-profiles-daemon"
 	],
+	"hyprland/window": {
+		"expand": true,
+		"format": "{title:^.40}"
+	},
 	"custom/brightnessctl": {
 		"exec": "$HOME/.scripts/brightness/get-brightness.sh",
 		"on-click": "$HOME/.scripts/brightness/waybar-brghtnssctl.sh && pkill -RTMIN+2 waybar",
 		"signal": 2
-	},
-	"custom/spaaaaace": { // 5 'a'
-		"exec": "echo ' '"
 	},
 	"custom/spacer": {
 		"format": "|",
@@ -47,14 +48,14 @@
 	},
 	"network": {
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
-		"format-wifi": "{signalStrength}% ",
+		"format-wifi": "{signalStrength}% {icon}",
 		"format-ethernet": "󰈁",
-		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-		"tooltip-format-ethernet": "{ifname} 󰈁 ",
-		"tooltip-format-disconnected": "Disconnected",
-		"format-linked": "{ifname} (No IP) 󰩟",
-		"format-disconnected": "⚠",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) {icon}",
+		"format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+		"tooltip-format-ethernet": "{ifname} 󰈁",
+		"tooltip-format-disconnected": "No net",
+		"format-linked": "{ifname} (No IP)",
+		"format-disconnected": "",
 		"format-alt": "{ifname}: {ipddr}/{cidr}"
 	},
 	"custom/mpris": {
