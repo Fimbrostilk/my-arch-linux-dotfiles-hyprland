@@ -6,7 +6,7 @@
 	"spacing": 0,
 	"output": "eDP-1",
 	"modules-left": ["custom/mpris"],
-	"modules-center": ["hyprland/window"],
+	"modules-center": ["custom/window"],
 	"reload_style_on_change": true,
 	"modules-right": [
 		"custom/brightnessctl",
@@ -21,9 +21,10 @@
 		"custom/spacer",
 		"power-profiles-daemon"
 	],
-	"hyprland/window": {
-		"expand": true,
-		"format": "{title:^.40}"
+	"custom/window": {
+		"exec": "$HOME/.scripts/windows/windowScroll.sh",
+		"format": "{}",
+		"escape": true
 	},
 	"custom/brightnessctl": {
 		"exec": "$HOME/.scripts/brightness/get-brightness.sh",
@@ -59,9 +60,9 @@
 		"format-alt": "{ifname}: {ipddr}/{cidr}"
 	},
 	"custom/mpris": {
-		"exec": "python3 -u $HOME/.scripts/music/scrolling-mpris.py",
-		"format": "{text}",
-		"return-type": "json",
+		"exec": "$HOME/.scripts/music/scroll.sh",
+		"format": " {}",
+		"escape": true,
 		"on-click": "playerctl play-pause"
 	},
 	"battery": {
