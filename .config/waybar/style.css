@@ -1,6 +1,4 @@
 * {
-	font-family: '0xProto Nerd Font';
-	font-size: 13px;
 	all: unset;
 }
 
@@ -12,7 +10,7 @@ tooltip {
 }
 
 #waybar {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.6);
 	border-bottom: 2px solid white;
 }
 
