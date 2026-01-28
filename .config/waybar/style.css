@@ -22,6 +22,7 @@ tooltip {
 #clock,
 #battery,
 #custom-brightnessctl,
+#custom-window,
 #custom-mpris {
 	font-family: '0xProto Nerd Font Mono';
 	font-weight: bold;
@@ -31,7 +32,5 @@ tooltip {
 }
 
 #custom-spacer { color: rgba(150, 150, 150, 1); }
-
-#custom-spaaaaace { min-width: 200px; }
 
 #custom-brightnessctl { font-size: 19px; }
